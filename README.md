@@ -48,9 +48,9 @@ make quickstart AWS_REGION=us-west-2 ENV=prod
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| OWNER | Propietario del proyecto | string | punkerside | no |
-| PROJECT | Nombre del proyecto | string | vpc | no |
-| ENV | Entorno de despliegue | string | lab | no |
+| OWNER | Propietario | string | punkerside | no |
+| PROJECT | Proyecto | string | vpc | no |
+| ENV | Entorno | string | lab | no |
 | CIDR_BLOCK | Segmento de VPC | string | `10.1.0.0/16` | no |
 | CIDR_PUB | Segmentos publicos | list | `["10.1.0.0/24","10.1.1.0/24","10.1.2.0/24"]` | no |
 | CIDR_PRI | Segmentos privados | list | `["10.1.3.0/24","10.1.4.0/24","10.1.5.0/24"]` | no |
