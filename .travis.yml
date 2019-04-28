@@ -1,8 +1,8 @@
 dist: xenial
 
 before_install:
-  - apt-get -y update
-  - apt-get -y install zip make wget
+  - sudo apt-get -y update
+  - sudo apt-get -y install zip make wget
   - docs/install/terraform.sh
 
 install:
