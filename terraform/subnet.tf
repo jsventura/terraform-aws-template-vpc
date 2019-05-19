@@ -21,7 +21,7 @@ resource "aws_subnet" "pri" {
   vpc_id                  = "${aws_vpc.this.id}"
   cidr_block              = "${element(var.cidr_pri, count.index)}"
   availability_zone       = "${element(local.aws_availability_zones, count.index)}"
-  map_public_ip_on_launch = true
+  map_public_ip_on_launch = false
 
   tags = {
     Name  = "${var.owner}-${var.env}-pri-${element(local.zone_ids, count.index)}"

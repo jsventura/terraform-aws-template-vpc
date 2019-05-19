@@ -1,6 +1,8 @@
-OWNER   = punkerside
-PROJECT = vpc
-ENV     = lab
+OWNER    = punkerside
+PROJECT  = vpc
+ENV      = lab
+NAT_TYPE = server
+NAT_SIZE = t2.micro
 
 CIDR_BLOCK = 10.1.0.0/16
 CIDR_PUB   = ["10.1.0.0/24","10.1.1.0/24","10.1.2.0/24"]
@@ -32,6 +34,8 @@ apply:
 	  -var 'cidr_block=$(CIDR_BLOCK)' \
 	  -var 'cidr_pub=$(CIDR_PUB)' \
 	  -var 'cidr_pri=$(CIDR_PRI)' \
+	  -var 'nat_type=$(NAT_TYPE)' \
+	  -var 'instance_type=$(NAT_SIZE)' \
 	-auto-approve \
 	-lock-timeout=30s
 
@@ -44,6 +48,8 @@ destroy:
 	  -var 'cidr_block=$(CIDR_BLOCK)' \
 	  -var 'cidr_pub=$(CIDR_PUB)' \
 	  -var 'cidr_pri=$(CIDR_PRI)' \
+	  -var 'nat_type=$(NAT_TYPE)' \
+	  -var 'instance_type=$(NAT_SIZE)' \
 	-auto-approve \
 	-lock-timeout=3s
 
@@ -56,6 +62,8 @@ validate:
 	  -var 'cidr_block=$(CIDR_BLOCK)' \
 	  -var 'cidr_pub=$(CIDR_PUB)' \
 	  -var 'cidr_pri=$(CIDR_PRI)' \
+	  -var 'nat_type=$(NAT_TYPE)' \
+	  -var 'instance_type=$(NAT_SIZE)'
 
 update:
 	export AWS_DEFAULT_REGION="$(AWS_REGION)" && \
