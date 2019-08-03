@@ -5,6 +5,6 @@ data "aws_availability_zones" "this" {
 
 # estableciendo zonas de disponibilidad
 locals {
-  aws_availability_zones = "${slice(data.aws_availability_zones.this.names, 0, 3)}"
-  zone_ids = "${slice(data.aws_availability_zones.this.zone_ids, 0, 3)}"
+  aws_availability_zones = "${slice(data.aws_availability_zones.this.names, 0, length(var.cidr_pub))}"
+  zone_ids = "${slice(data.aws_availability_zones.this.zone_ids, 0, length(var.cidr_pub))}"
 }
