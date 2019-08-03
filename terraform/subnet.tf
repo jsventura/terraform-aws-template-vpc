@@ -7,11 +7,11 @@ resource "aws_subnet" "pub" {
   map_public_ip_on_launch = true
 
   tags = {
-    Name  = "${var.owner}-${var.env}-pub-${element(local.zone_ids, count.index)}"
+    Name  = "${var.owner}-${var.env}-pub"
     Owner = "${var.owner}"
     Env   = "${var.env}"
     Tier  = "pub"
-    az    = "${element(local.zone_ids, count.index)}"
+    AZ    = "${element(local.zone_ids, count.index)}"
   }
 }
 
@@ -24,10 +24,10 @@ resource "aws_subnet" "pri" {
   map_public_ip_on_launch = false
 
   tags = {
-    Name  = "${var.owner}-${var.env}-pri-${element(local.zone_ids, count.index)}"
+    Name  = "${var.owner}-${var.env}-pri"
     Owner = "${var.owner}"
     Env   = "${var.env}"
     Tier  = "pri"
-    az    = "${element(local.zone_ids, count.index)}"
+    AZ    = "${element(local.zone_ids, count.index)}"
   }
 }

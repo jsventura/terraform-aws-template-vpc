@@ -24,34 +24,23 @@ Esta plantilla de Terraform, despliega los siguientes recursos:
 
 * [Instalar Terraform](https://learn.hashicorp.com/terraform/getting-started/install.html)
 * [Instalar AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
-* Crear bucket S3 con el siguiente formato: **owner**-prod-terraform
-
-**NOTA:** Al crear el bucket "**owner**" debe ser cambiado por el nombre del propietario del proyecto.
 
 ## Inicio rapido
 
 Para desplegar toda la infraestructura:
 
 ```bash
-make quickstart
-```
-
-## Inicio personalizado
-
-Para desplegar toda la infraestructura:
-
-```bash
-make quickstart AWS_REGION=us-west-2 ENV=prod
+make quickstart AWS_REGION=us-east-1 OWNER=punkerside PROJECT=vpc ENV=demo
 ```
 
 ## Variables
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| OWNER | Propietario | string | punkerside | no |
-| PROJECT | Proyecto | string | vpc | no |
-| ENV | Entorno | string | lab | no |
-| CIDR_BLOCK | Segmento de VPC | string | `10.1.0.0/16` | no |
-| CIDR_PUB | Segmentos publicos | list | `["10.1.0.0/24","10.1.1.0/24","10.1.2.0/24"]` | no |
-| CIDR_PRI | Segmentos privados | list | `["10.1.3.0/24","10.1.4.0/24","10.1.5.0/24"]` | no |
+| OWNER | Propietario | string | `punkerside` | no |
+| PROJECT | Proyecto | string | `vpc` | no |
+| ENV | Entorno | string | `demo` | no |
 | AWS_REGION | Region de AWS | string | `us-east-1` | no |
+| CIDR_BLOCK | Segmento de VPC | string | `10.1.0.0/16` | no |
+| CIDR_PRI | Segmentos privados | list | `["10.1.0.0/22","10.1.4.0/22","10.1.8.0/22"]` | no |
+| CIDR_PUB | Segmentos publicos | list | `["10.1.12.0/22","10.1.16.0/22","10.1.20.0/22"]` | no |
